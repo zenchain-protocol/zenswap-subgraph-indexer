@@ -16,6 +16,7 @@ export enum NETWORK {
   SONEIUM = 'soneium-mainnet',
   UNICHAIN = 'unichain-mainnet',
   WORLDCHAIN = 'worldchain-mainnet',
+  ZENCHAIN = 'zenchain-testnet',
   ZORA = 'zora-mainnet',
 }
 
