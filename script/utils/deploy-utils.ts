@@ -51,6 +51,7 @@ export const deploy = async (subgraphType) => {
 export const deployToIpfsOnly = async (subgraphType) => {
   try {
     const { ipfs } = getAlchemyDeploymentParams('zenchain-testnet')
+    console.log('Deploying subgraph to IPFS...')
     const { stdout } = await exec(`graph deploy --ipfs ${ipfs} ${subgraphType}-subgraph.yaml`)
     console.log(stdout)
     console.log('Subgraph deployed to IPFS successfully.')
