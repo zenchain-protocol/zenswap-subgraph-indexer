@@ -1,4 +1,4 @@
-import { exec as execCallback } from 'child_process'
+import { exec as execCallback, spawn } from 'child_process'
 import * as util from 'util'
 
 import { getAlchemyDeploymentParams, getSubgraphName, prepare } from './prepareNetwork'
@@ -52,12 +52,29 @@ export const deployToIpfsOnly = async (subgraphType) => {
   try {
     const { ipfs } = getAlchemyDeploymentParams('zenchain-testnet')
     console.log('Deploying subgraph to IPFS...')
-    const { stdout } = await exec(`graph deploy --ipfs ${ipfs} ${subgraphType}-subgraph.yaml`)
-    console.log(stdout)
+    await runCommandLive('graph', ['deploy', '--ipfs', ipfs, `${subgraphType}-subgraph.yaml`])
     console.log('Subgraph deployed to IPFS successfully.')
   } catch (e) {
     console.log(e.stdout)
     console.log('Error: Failed to deploy subgraph to IPFS. Please try again.')
     process.exit(1)
   }
+}
+
+export function runCommandLive(command: string, args: string[] = []): Promise<void> {
+  return new Promise((resolve, reject) => {
+    const child = spawn(command, args, { stdio: 'inherit', shell: true })
+
+    child.on('close', (code) => {
+      if (code === 0) {
+        resolve()
+      } else {
+        reject(new Error(`Command failed with exit code ${code}`))
+      }
+    })
+
+    child.on('error', (err) => {
+      reject(err)
+    })
+  })
 }
