@@ -5,7 +5,8 @@
   "license": "GPL-3.0-or-later",
   "scripts": {
     "lint": "eslint . --ext .ts --fix",
-    "build": "cross-env ts-node ./script/build"
+    "build": "cross-env ts-node ./script/build",
+    "deploy:zenchain-testnet": "graph build -i https://unauthipfs.subquery.network/ipfs/api/v0 v2-tokens-subgraph.yaml"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.64.1",

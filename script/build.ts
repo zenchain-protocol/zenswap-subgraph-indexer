@@ -1,6 +1,6 @@
 import yargs from 'yargs'
 
-import { build, deploy, deployToIpfsOnly } from './utils/deploy-utils'
+import { build, deploy } from './utils/deploy-utils'
 import { validateNetwork, validateSubgraphType } from './utils/prepareNetwork'
 
 async function main() {
@@ -30,7 +30,7 @@ async function main() {
   if (argv.deploy) {
     const isZenChainTestnet = argv.network.toLowerCase() === 'zenchain-testnet'
     if (isZenChainTestnet) {
-      await deployToIpfsOnly(argv.subgraphType)
+      console.warn('ZenChain testnet only supports interactive deployment: yarn deploy:zenchain-testnet')
     } else if (argv.deploy) {
       await deploy(argv.subgraphType)
     }
