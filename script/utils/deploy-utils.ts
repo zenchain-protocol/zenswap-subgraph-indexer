@@ -47,3 +47,16 @@ export const deploy = async (subgraphType) => {
     process.exit(1)
   }
 }
+
+export const deployToIpfsOnly = async (subgraphType) => {
+  try {
+    const { ipfs } = getAlchemyDeploymentParams('zenchain-testnet')
+    const { stdout } = await exec(`graph deploy --ipfs ${ipfs} ${subgraphType}-subgraph.yaml`)
+    console.log(stdout)
+    console.log('Subgraph deployed to IPFS successfully.')
+  } catch (e) {
+    console.log(e.stdout)
+    console.log('Error: Failed to deploy subgraph to IPFS. Please try again.')
+    process.exit(1)
+  }
+}
