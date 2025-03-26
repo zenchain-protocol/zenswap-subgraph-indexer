@@ -58,7 +58,6 @@ export const deployToIpfsOnly = async (subgraphType) => {
       ipfs,
       '--product',
       'hosted-service',
-      '--debug',
       `${subgraphType}-subgraph.yaml`,
     ])
     console.log('Subgraph deployed to IPFS successfully.')
