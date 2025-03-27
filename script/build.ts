@@ -28,12 +28,7 @@ async function main() {
   validateSubgraphType(argv.subgraphType)
   await build(argv.network, argv.subgraphType)
   if (argv.deploy) {
-    const isZenChainTestnet = argv.network.toLowerCase() === 'zenchain-testnet'
-    if (isZenChainTestnet) {
-      console.warn('ZenChain testnet only supports interactive deployment: yarn deploy:zenchain-testnet')
-    } else if (argv.deploy) {
-      await deploy(argv.subgraphType)
-    }
+    await deploy(argv.subgraphType)
   }
 }
 
