@@ -184,13 +184,13 @@ type Swap @entity(immutable: true) {
 }
 
 # stores for USD calculations
-type Bundle @entity(immutable: true) {
+type Bundle @entity(immutable: false) {
   id: ID!
   ethPrice: BigDecimal! # price of ETH usd
 }
 
 # Data accumulated and condensed into day stats for all of Uniswap
-type UniswapDayData @entity(immutable: true) {
+type UniswapDayData @entity(immutable: false) {
   id: ID! # timestamp rounded to current day by dividing by 86400
   date: Int!
 
@@ -206,7 +206,7 @@ type UniswapDayData @entity(immutable: true) {
   txCount: BigInt!
 }
 
-type PairHourData @entity(immutable: true) {
+type PairHourData @entity(immutable: false) {
   id: ID!
   hourStartUnix: Int! # unix timestamp for start of hour
   pair: Pair!
@@ -229,7 +229,7 @@ type PairHourData @entity(immutable: true) {
 }
 
 # Data accumulated and condensed into day stats for each exchange
-type PairDayData @entity(immutable: true) {
+type PairDayData @entity(immutable: false) {
   id: ID!
   date: Int!
   pairAddress: Bytes!
@@ -253,7 +253,7 @@ type PairDayData @entity(immutable: true) {
   dailyTxns: BigInt!
 }
 
-type TokenDayData @entity(immutable: true) {
+type TokenDayData @entity(immutable: false) {
   id: ID!
   date: Int!
   token: Token!
@@ -273,7 +273,7 @@ type TokenDayData @entity(immutable: true) {
   priceUSD: BigDecimal!
 }
 
-type TokenHourData @entity(immutable: true) {
+type TokenHourData @entity(immutable: false) {
   # token address concatendated with date
   id: ID!
   # unix timestamp for start of hour
