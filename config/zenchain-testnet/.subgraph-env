@@ -1,2 +1,4 @@
 V2_TOKEN_SUBGRAPH_NAME="v2-tokens-zenchain-testnet"
 V2_TOKEN_SUBGRAPH_VERSION="v0.0.2"
+V2_SUBGRAPH_NAME="v2-zenchain-testnet"
+V2_SUBGRAPH_VERSION="v0.0.2"
