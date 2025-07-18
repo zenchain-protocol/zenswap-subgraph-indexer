@@ -19,4 +19,4 @@
 
 Note: Deployments will fail if there are uncommitted changes in the subgraph. Please commit your changes before deploying.
 
-`npx ts-node .\script\build.ts --network="zenchain-testnet" --subgraph-type="v2-tokens" --deploy`
+`npx ts-node .\script\build.ts --network="zenchain-testnet" --subgraph-type="v2" --deploy`

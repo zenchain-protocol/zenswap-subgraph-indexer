@@ -4,8 +4,8 @@ export const FACTORY_ADDRESS = '0x77d7fa7cb837e7a1cd48918eaec6afa996586799'
 
 export const REFERENCE_TOKEN = '0x0000000000000000000000000000000000000804'
 export const STABLE_TOKEN_PAIRS = [
-  '0xb38D321c4dB0Bbe09E02c99b39146aEae250FC35', // ZTC-USDC
-  '0xAb935A3d43c24F4e8a9Be06e538D4335E2a0AEEc', // ZTC-USDT
+  '0xb38d321c4db0bbe09e02c99b39146aeae250fc35', // ZTC-USDC
+  '0xab935a3d43c24f4e8a9be06e538d4335e2a0aeec', // ZTC-USDT
 ]
 
 // token where amounts should contribute to tracked volume and liquidity
